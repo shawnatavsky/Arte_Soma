@@ -309,7 +309,7 @@ const styles = `
     font-size: 0.85rem;
     font-weight: 400;
     letter-spacing: 0.04em;
-    color: #2a2520;
+    color: #5a5248;
     text-align: center;
     line-height: 1.5;
   }
@@ -322,7 +322,7 @@ const styles = `
     font-size: 0.85rem;
     font-weight: 400;
     letter-spacing: 0.04em;
-    color: #2a2520;
+    color: #5a5248;
     text-align: center;
     line-height: 1.5;
 
