@@ -190,11 +190,6 @@ const INTRO_NOTE = {
   es: "Las micro-prácticas de Arte Soma son breves invitaciones a notar, sentir y atender — lo que está presente, cercano o pasado por alto. Esta herramienta genera una práctica a la vez, según lo que tú aportas.",
 };
 
-const INTRO_NOTE = {
-  en: "Arte Soma micro-practices are brief invitations to notice, sense, and attend — to what is present, close, or overlooked. This tool generates one practice at a time, shaped by your inputs.",
-  es: "Las micro-prácticas de Arte Soma son breves invitaciones a notar, sentir y atender — lo que está presente, cercano o pasado por alto. Esta herramienta genera una práctica a la vez, según lo que tú aportas.",
-};
-
 const INIT_INSTRUCTION = {
   en: "Answer any or all of the questions below — you can number your answers to match, or just write freely. Up to 5 practices are available each day.",
   es: "Responde una o todas las preguntas a continuación — puedes numerar tus respuestas o simplemente escribir libremente. Hay hasta 5 prácticas disponibles por día.",
@@ -644,9 +639,12 @@ export default function ArteSoma() {
         <div className="limit-notice">{LIMIT_MSG[lang]}</div>
       ) : (
         <>
-          {messages.length > 0 && (
-            <p className="instruction-note">{INIT_INSTRUCTION[lang]}</p>
-          )}
+      {messages.length > 0 && (
+  <>
+    <p className="intro-note">{INTRO_NOTE[lang]}</p>
+    <p className="instruction-note">{INIT_INSTRUCTION[lang]}</p>
+  </>
+)}
 
           <div className="chat-window">
             {messages.map((msg, i) => (
