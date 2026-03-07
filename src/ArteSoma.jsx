@@ -301,6 +301,18 @@ const styles = `
   }
   .usage-dot.used { background: #9a8f85; border-color: #9a8f85; }
 
+  .intro-note {
+    width: 100%;
+    max-width: 620px;
+    margin-bottom: 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #2a2520;
+    text-align: center;
+    line-height: 1.7;
+  }
+
   .instruction-note {
     width: 100%;
     max-width: 620px;
