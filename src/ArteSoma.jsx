@@ -442,13 +442,13 @@ const styles = `
   .send-btn {
     width: 36px; height: 36px;
     border-radius: 50%;
-    background: #2a2520;
+    background: #d4685e;
     border: none; cursor: pointer;
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
     transition: background 0.2s, transform 0.1s;
   }
-  .send-btn:hover { background: #4a3f35; transform: scale(1.05); }
+  .send-btn:hover { background: #c8564b; transform: scale(1.05); }
   .send-btn:disabled { background: #d0c8c0; cursor: default; transform: none; }
   .send-btn svg { width: 15px; height: 15px; fill: #fff; }
 
