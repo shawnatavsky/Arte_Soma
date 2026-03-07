@@ -304,13 +304,13 @@ const styles = `
   .intro-note {
     width: 100%;
     max-width: 620px;
-    margin-bottom: 12px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    font-weight: 300;
-    color: #2a2520;
+    margin-bottom: 24px;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: #6a4540;
     text-align: center;
-    line-height: 1.7;
   }
 
   .instruction-note {
