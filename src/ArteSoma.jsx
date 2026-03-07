@@ -629,8 +629,8 @@ export default function ArteSoma() {
   return (
     <div className="app">
       <div className="header">
-        <h1 className="header-title"><em>Arte Soma</em></h1>
-        <p className="header-byline">Micro-Practice Generator</p>
+      <img src="/logo.png" alt="Arte Soma" className="header-logo" />
+      <p className="header-byline">Micro-Practice Generator</p>
         <div className="divider" />
       </div>
 
