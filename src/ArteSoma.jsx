@@ -235,7 +235,7 @@ const styles = `
     font-weight: 300;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #9a8f85;
+    color: #5a5248;
   }
 
   .divider {
@@ -458,7 +458,7 @@ const styles = `
     font-size: 0.68rem;
     font-weight: 300;
     letter-spacing: 0.06em;
-    color: #b5aca3;
+    color: #5a5248;
     margin-top: -16px;
     margin-bottom: 8px;
   }
