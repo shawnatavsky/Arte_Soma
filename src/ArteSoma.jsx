@@ -304,7 +304,7 @@ const styles = `
     font-size: 0.85rem;
     font-weight: 400;
     letter-spacing: 0.04em;
-    color: #4a4540;
+    color: #6a4540;
     text-align: center;
 
   }
