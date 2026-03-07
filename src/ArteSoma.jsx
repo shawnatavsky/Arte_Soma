@@ -341,9 +341,9 @@ const styles = `
     border-radius: 16px 16px 16px 2px;
     border: 1px solid #e8e0d6;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.02rem;
+    font-size: 1.08rem;
     font-weight: 300;
-    color: #2a2520;
+    color: #1a1510;
     line-height: 1.9;
   }
 
