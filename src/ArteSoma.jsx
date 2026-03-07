@@ -675,13 +675,8 @@ export default function ArteSoma() {
           </div>
 
           <div className="input-area">
-            <div style={{ width: "100%", maxWidth: "620px" }}>
-              <p className="disclaimer">
-                {lang === "es"
-                  ? "No es consejo terapéutico · Diseñado por Shawna Tavsky"
-                  : "Not therapeutic advice · Designed by Shawna Tavsky"}
-              </p>
-              <div className="input-row">
+          <div style={{ width: "100%", maxWidth: "620px" }}>
+          <div className="input-row">
                 <textarea
                   ref={textareaRef}
                   className="input-field"
@@ -699,6 +694,11 @@ export default function ArteSoma() {
                   <SendIcon />
                 </button>
               </div>
+              <p className="disclaimer">
+                {lang === "es"
+                  ? "No es consejo terapéutico · Diseñado por Shawna Tavsky"
+                  : "Not therapeutic advice · Designed by Shawna Tavsky"}
+              </p>
             </div>
           </div>
         </>
