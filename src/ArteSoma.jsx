@@ -310,7 +310,7 @@ const styles = `
     font-weight: 400;
     letter-spacing: 0.04em;
     color: #5a5248;
-    text-align: center;
+    text-align: left;
     line-height: 1.5;
   }
 
@@ -323,7 +323,7 @@ const styles = `
     font-weight: 400;
     letter-spacing: 0.04em;
     color: #5a5248;
-    text-align: center;
+    text-align: left;
     line-height: 1.5;
 
 
