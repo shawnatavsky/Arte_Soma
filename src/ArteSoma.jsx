@@ -219,15 +219,12 @@ const styles = `
 
   .header { text-align: center; margin-bottom: 28px; }
 
-  .header-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.1rem;
-    font-weight: 300;
-    letter-spacing: 0.04em;
-    color: #2a2520;
-    line-height: 1.2;
+ .header-logo {
+    height: 60px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
   }
-  .header-title em { font-style: italic; }
 
   .header-byline {
     margin-top: 10px;
