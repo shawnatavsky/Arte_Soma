@@ -186,8 +186,8 @@ Guiding Heuristic
 When in doubt, choose allowance over control, fewer instructions over more, and openness over correctness.`;
 
 const INTRO_NOTE = {
-  en: "A generator for short creative micro-practices rooted in attention and perception — shaped by your inputs, designed for slow present engagement, and accompanied by a brief neuroarts-informed note on the perceptual processes involved.",
-  es: "Un generador de micro-prácticas creativas breves, basadas en la atención y la percepción. Cada práctica está moldeada por tus respuestas y diseñada para un compromiso lento y presente. Cada práctica incluye una breve nota informada por las neurociencias de las artes sobre los procesos perceptivos involucrados.",
+  en: "This tool is for moments when you want to slow down and notice — without an agenda. It generates short creative micro-practices shaped by your inputs, designed for present engagement, and accompanied by a brief neuroarts-informed note on the perceptual processes involved.",
+  es: "Esta herramienta es para los momentos en que quieres ralentizar y notar — sin una agenda. Genera micro-prácticas creativas breves moldeadas por tus respuestas, diseñadas para el compromiso presente, y acompañadas de una breve nota informada por las neurociencias de las artes sobre los procesos perceptivos involucrados.",
 };
 
 const INIT_INSTRUCTION = {
