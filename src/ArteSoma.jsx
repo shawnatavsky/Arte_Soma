@@ -403,12 +403,14 @@ const styles = `
     40% { opacity: 1; transform: scale(1); }
   }
 
-  .input-area {
+.input-area {
     position: fixed;
     bottom: 0; left: 0; right: 0;
     background: linear-gradient(to top, #f5f0eb 80%, transparent);
     padding: 20px 24px 32px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
   }
   .input-row {
@@ -450,14 +452,16 @@ const styles = `
   .send-btn:disabled { background: #d0c8c0; cursor: default; transform: none; }
   .send-btn svg { width: 15px; height: 15px; fill: #fff; }
 
-  .disclaimer {
+.disclaimer {
     text-align: center;
     font-size: 0.68rem;
     font-weight: 300;
     letter-spacing: 0.06em;
-    color: #5a5248;
-    margin-top: -16px;
-    margin-bottom: 8px;
+    color: #b5aca3;
+    margin-top: 6px;
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 620px;
   }
 `;
 
