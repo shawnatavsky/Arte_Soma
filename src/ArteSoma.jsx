@@ -301,12 +301,12 @@ const styles = `
     max-width: 620px;
     margin-bottom: 24px;
     font-family: 'Karla', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 300;
+    font-size: 0.85rem;
+    font-weight: 400;
     letter-spacing: 0.04em;
-    color: #7a726b;
+    color: #4a4540;
     text-align: center;
-    font-style: italic;
+
   }
 
   .chat-window {
