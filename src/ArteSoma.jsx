@@ -733,15 +733,19 @@ setTimeout(async () => {
   const isNew = i === messages.length - 1 && msg.role === "assistant";
   return (
     <div key={msg.content.slice(0, 30) + i} className={`message ${msg.role}`}>
-      <div
+     <div
         className="bubble"
-    style={isNew ? {
-  opacity: 0,
-  animation: "fadeSlideIn 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards"
-} : {}}
-      >
-        {msg.content}
-      </div>
+        style={isNew ? {
+          opacity: 0,
+          animation: "fadeSlideIn 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards"
+        } : {}}
+        dangerouslySetInnerHTML={{
+          __html: msg.content
+            .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+            .replace(/\*(.+?)\*/g, "<em>$1</em>")
+            .replace(/\n/g, "<br/>")
+        }}
+      />
     </div>
   );
 })}
