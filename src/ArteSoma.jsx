@@ -190,10 +190,7 @@ const INTRO_NOTE = {
   es: "Esta herramienta es para los momentos en que quieres ralentizar y notar — sin una agenda. Genera micro-prácticas creativas breves moldeadas por tus respuestas, diseñadas para el compromiso presente, y acompañadas de una breve nota informada por las neurociencias de las artes sobre los procesos perceptivos involucrados.",
 };
 
-const INIT_INSTRUCTION = {
-  en: "Answer any or all of the questions below — you can write freely or respond to just one. Up to 5 practices are available each day.",
-  es: "Responde una o todas las preguntas a continuación — puedes escribir libremente o responder solo una. Hay hasta 5 prácticas disponibles por día.",
-};
+
 
 const LIMIT_MSG = {
   en: "You've reached the 5 practice limit for today.\nThis tool is designed for slow, spaced use.\nCome back tomorrow.",
