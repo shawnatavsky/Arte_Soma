@@ -328,6 +328,14 @@ const styles = `
     display: none;
   }
 
+  details:not([open]) .intro-summary-close {
+    display: none;
+  }
+
+  details[open] .intro-summary-open {
+    display: none;
+  }
+
   .intro-note {
     width: 100%;
     max-width: 620px;
@@ -685,8 +693,12 @@ export default function ArteSoma() {
      {messages.length > 0 && (
   <>
     <details className="intro-dropdown">
-      <summary className="intro-summary">
-        {lang === "es" ? "¿Cómo usar esta herramienta?" : "How to use this tool"}
+     <summary className="intro-summary">
+        {lang === "es"
+          ? "¿Cómo usar esta herramienta?"
+          : "How to use this tool"}
+        <span className="intro-summary-open"> ﹢</span>
+        <span className="intro-summary-close"> ﹣</span>
       </summary>
       <p className="intro-note">{INTRO_NOTE[lang]}</p>
       <p className="instruction-note">
