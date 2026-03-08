@@ -341,9 +341,9 @@ const styles = `
     display: none;
   }
 
-  details[open] .intro-note,
+ details[open] .intro-note,
   details[open] .instruction-note {
-    animation: fadeSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fadeSlideIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .intro-note {
