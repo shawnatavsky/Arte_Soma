@@ -730,14 +730,13 @@ setTimeout(async () => {
 )}
 <div className="chat-window">
 {messages.map((msg, i) => {
-  const isLatestAssistant = i === messages.length - 1 && msg.role === "assistant";
+  const isNew = i === messages.length - 1 && msg.role === "assistant";
   return (
-    <div key={`${i}-${messages.length}`} className={`message ${msg.role}`}>
+    <div key={msg.content.slice(0, 30) + i} className={`message ${msg.role}`}>
       <div
         className="bubble"
-        style={isLatestAssistant ? {
-          opacity: 0,
-          animation: "fadeSlideIn 0.8s ease 0.05s forwards"
+        style={isNew ? {
+          animation: "fadeSlideIn 1.2s ease forwards"
         } : {}}
       >
         {msg.content}
