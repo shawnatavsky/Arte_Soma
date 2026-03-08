@@ -522,7 +522,7 @@ const styles = `
     font-size: 0.68rem;
     font-weight: 300;
     letter-spacing: 0.06em;
-    color: #b5aca3;
+    color: #7a726b;
     margin-top: 6px;
     margin-bottom: 0;
     width: 100%;
