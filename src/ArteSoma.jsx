@@ -407,7 +407,7 @@ const styles = `
     font-weight: 300;
     color: #1a1510;
     line-height: 1.9;
-    animation: fadeSlideIn 0.6s ease forwards;
+    width: 100%;
 
   }
 
