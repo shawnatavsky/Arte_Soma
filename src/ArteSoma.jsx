@@ -205,7 +205,7 @@ const styles = `
   body { background: #f5f0eb; }
 
     @keyframes fadeSlideIn {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
@@ -730,9 +730,9 @@ setTimeout(async () => {
     <div key={msg.content.slice(0, 30) + i} className={`message ${msg.role}`}>
       <div
         className="bubble"
-      style={isNew ? {
+    style={isNew ? {
   opacity: 0,
-  animation: "fadeSlideIn 1.2s ease forwards"
+  animation: "fadeSlideIn 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards"
 } : {}}
       >
         {msg.content}
