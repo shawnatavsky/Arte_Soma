@@ -204,9 +204,9 @@ const styles = `
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #f5f0eb; }
 
- @keyframes fadeSlideIn {
-    0% { opacity: 0; transform: translateY(16px); }
-    100% { opacity: 1; transform: translateY(0); }
+    @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .app {
@@ -673,12 +673,7 @@ setTimeout(async () => {
 
  return (
   <div className="app">
-<style>{`
-  @keyframes fadeSlideIn {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-`}</style>
+
       <div className="header">
       <img src="/logo.png" alt="Arte Soma" className="header-logo" />
       <p className="header-byline">Micro-Practice Generator</p>
@@ -735,9 +730,10 @@ setTimeout(async () => {
     <div key={msg.content.slice(0, 30) + i} className={`message ${msg.role}`}>
       <div
         className="bubble"
-        style={isNew ? {
-          animation: "fadeSlideIn 1.2s ease forwards"
-        } : {}}
+      style={isNew ? {
+  opacity: 0,
+  animation: "fadeSlideIn 1.2s ease forwards"
+} : {}}
       >
         {msg.content}
       </div>
