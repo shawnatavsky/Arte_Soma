@@ -731,7 +731,7 @@ export default function ArteSoma() {
 )}
           <div className="chat-window">
 {messages.map((msg, i) => (
-  <div key={i} className={`message ${msg.role}`}>
+  <div key={`${msg.role}-${i}-${msg.content.slice(0, 20)}`} className={`message ${msg.role}`}>
     <div className={`bubble ${i === messages.length - 1 && msg.role === "assistant" ? "bubble-animate" : ""}`}>
       {msg.content}
     </div>
