@@ -652,20 +652,25 @@ export default function ArteSoma() {
         <div className="limit-notice">{LIMIT_MSG[lang]}</div>
       ) : (
         <>
-      {messages.length > 0 && (
+     {messages.length > 0 && (
   <>
-    <p className="intro-note">{INTRO_NOTE[lang]}</p>
-<p className="instruction-note">
-  {lang === "es"
-    ? "Responde una o todas las preguntas a continuación — puedes escribir libremente o responder solo una."
-    : "Answer any or all of the questions below — you can write freely or respond to just one."}
-  <br />
-  {lang === "es"
-    ? "Hay hasta 5 prácticas disponibles por día."
-    : "Up to 5 practices are available each day."}
-</p>  </>
+    <details className="intro-dropdown">
+      <summary className="intro-summary">
+        {lang === "es" ? "¿Qué es esto?" : "What is this?"}
+      </summary>
+      <p className="intro-note">{INTRO_NOTE[lang]}</p>
+      <p className="instruction-note">
+        {lang === "es"
+          ? "Responde una o todas las preguntas a continuación — puedes escribir libremente o responder solo una."
+          : "Answer any or all of the questions below — you can write freely or respond to just one."}
+        <br />
+        {lang === "es"
+          ? "Hay hasta 5 prácticas disponibles por día."
+          : "Up to 5 practices are available each day."}
+      </p>
+     </details>
+  </>
 )}
-
           <div className="chat-window">
             {messages.map((msg, i) => (
               <div key={i} className={`message ${msg.role}`}>
