@@ -465,7 +465,7 @@ const styles = `
     max-width: 480px;
     display: flex;
     gap: 10px;
-    align-items: flex-end;
+    align-items: center;
     background: #fff;
     border: 1px solid #ddd5ca;
     border-radius: 24px;
