@@ -596,7 +596,7 @@ export default function ArteSoma() {
         body: JSON.stringify({
           model: "claude-sonnet-4-20250514",
           max_tokens: 1000,
-          system: SYSTEM_PROMPT + `\n\n[${langNote}]`,
+          system: SYSTEM_PROMPT + `\n\n[${langNote}] Important: Do not repeat questions that have already been asked. If the only remaining questions are optional ones, do not ask them again — proceed directly to generating the practice.`,
           messages: updated.map(m => ({ role: m.role, content: m.content })),
         }),
       });
