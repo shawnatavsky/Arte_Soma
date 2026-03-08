@@ -295,17 +295,50 @@ const styles = `
   }
   .usage-dot.used { background: #9a8f85; border-color: #9a8f85; }
 
+  .intro-dropdown {
+    width: 100%;
+    max-width: 620px;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .intro-summary {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6a6158;
+    cursor: pointer;
+    list-style: none;
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid #b5aca3;
+    background: transparent;
+    transition: all 0.2s;
+  }
+
+  .intro-summary:hover {
+    color: #2a2520;
+    border-color: #6a6158;
+  }
+
+  .intro-summary::-webkit-details-marker {
+    display: none;
+  }
+
   .intro-note {
     width: 100%;
     max-width: 620px;
-    margin-bottom: 24px;
-    font-family: 'Karla', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 300;
     color: #5a5248;
-    text-align: left;
-    line-height: 1.5;
+    text-align: center;
+    line-height: 1.7;
+    margin-top: 16px;
   }
 
   .instruction-note {
