@@ -567,28 +567,11 @@ export default function ArteSoma() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
 
-  const initConversation = async (currentLang) => {
-    setLoading(true);
-    const langNote = currentLang === "es"
-      ? "The user has selected Spanish. Ask all questions in Spanish and generate all content in Spanish."
-      : "The user has selected English. Ask all questions in English and generate all content in English.";
-    try {
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 1000,
-          system: SYSTEM_PROMPT,
-          messages: [{ role: "user", content: `__init__ ${langNote} Present the questions as a compact list with no blank lines between items.` }],        }),
-      });
-      const data = await res.json();
-      const text = data.content?.map(b => b.text || "").join("") || "";
-      setMessages([{ role: "assistant", content: text }]);
-    } catch {
-      setMessages([{ role: "assistant", content: "Something went wrong. Please refresh." }]);
-    }
-    setLoading(false);
+  const initConversation = (currentLang) => {
+    const questions = currentLang === "es"
+      ? `• ¿Cuánto tiempo tienes disponible: 2, 5 o 10 minutos?\n• Modalidad: escribir, dibujar, cuerpo, fotografía u observar?\n• Estado actual (opcional): disperso, tenso, curioso, incierto, abierto?\n• ¿Alguna otra preferencia? (opcional)`
+      : `• Time available: 2, 5, or 10 minutes?\n• Modality: write, draw, body, photography, or observe?\n• Current state (optional): scattered, tense, curious, uncertain, open?\n• Any other preferences? (optional)`;
+    setMessages([{ role: "assistant", content: questions }]);
   };
 
   const handleSend = async () => {
