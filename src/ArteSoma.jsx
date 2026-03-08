@@ -344,16 +344,13 @@ const styles = `
   .instruction-note {
     width: 100%;
     max-width: 620px;
-    margin-bottom: 24px;
-    font-family: 'Karla', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 300;
     color: #5a5248;
-    text-align: left;
-    line-height: 1.5;
-
-
+    text-align: center;
+    line-height: 1.7;
   }
 
   .chat-window {
