@@ -703,11 +703,11 @@ setTimeout(async () => {
         )}
       </div>
 
-      <div className="usage-indicator" title={`${usageCount} of ${MAX_DAILY} practices today`}>
-        {Array.from({ length: MAX_DAILY }).map((_, i) => (
-          <div key={i} className={`usage-dot ${i < usageCount ? "used" : ""}`} />
-        ))}
-      </div>
+     <div className="usage-indicator" title={`${usageCount} of ${MAX_DAILY} practices today`}>
+  {Array.from({ length: MAX_DAILY }).map((_, i) => (
+    <div key={i} className={`usage-dot ${i < usageCount ? "used" : ""}`} />
+  ))}
+</div>
 
       {limitReached ? (
         <div className="limit-notice">{LIMIT_MSG[lang]}</div>
