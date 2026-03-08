@@ -442,7 +442,7 @@ const styles = `
     position: fixed;
     bottom: 0; left: 0; right: 0;
     background: linear-gradient(to top, #f5f0eb 80%, transparent);
-    padding: 20px 24px 32px;
+    padding: 8px 24px 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
