@@ -204,6 +204,11 @@ const styles = `
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #f5f0eb; }
 
+   @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   .app {
     min-height: 100vh;
     background: #f5f0eb;
@@ -397,6 +402,8 @@ const styles = `
     font-weight: 300;
     color: #1a1510;
     line-height: 1.9;
+    animation: fadeSlideIn 0.6s ease forwards;
+
   }
 
   .limit-notice {
@@ -486,6 +493,24 @@ const styles = `
   .send-btn:hover { background: #ff7474; transform: scale(1.05); }
   .send-btn:disabled { background: #ffdcdc; cursor: default; transform: none; }
   .send-btn svg { width: 15px; height: 15px; fill: #fff; }
+
+  .coffee-link {
+    display: block;
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #5a5248;
+    text-decoration: none;
+    margin-bottom: 10px;
+    margin-top: 4px;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+
+  .coffee-link:hover {
+    color: #2a2520;
+  }
 
 .disclaimer {
     text-align: center;
@@ -731,11 +756,20 @@ export default function ArteSoma() {
                   <SendIcon />
                 </button>
               </div>
-              <p className="disclaimer">
-                {lang === "es"
-                  ? "No es consejo terapéutico · Diseñado por Shawna Tavsky"
-                  : "Not therapeutic advice · Designed by Shawna Tavsky"}
-              </p>
+              <p className="coffee-link"
+  href="https://buymeacoffee.com/shawnatavsky"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  {lang === "es"
+    ? "Si esta herramienta te es útil, puedes invitarme un café ☕ 🙏"
+    : "If this tool is useful, you're welcome to buy me a coffee ☕ 🙏"}
+</a>
+<p className="disclaimer">
+  {lang === "es"
+    ? "No es consejo terapéutico · Diseñado por Shawna Tavsky"
+    : "Not therapeutic advice · Designed by Shawna Tavsky"}
+</p>
             </div>
           </div>
         </>
