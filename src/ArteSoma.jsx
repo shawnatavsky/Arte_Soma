@@ -656,7 +656,7 @@ export default function ArteSoma() {
   <>
     <details className="intro-dropdown">
       <summary className="intro-summary">
-        {lang === "es" ? "¿Qué es esto?" : "What is this?"}
+        {lang === "es" ? "¿Cómo usar esta herramienta?" : "How to use this tool"}
       </summary>
       <p className="intro-note">{INTRO_NOTE[lang]}</p>
       <p className="instruction-note">
