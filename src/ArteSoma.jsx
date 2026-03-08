@@ -462,7 +462,7 @@ const styles = `
   }
   .input-row {
     width: 100%;
-    max-width: 480px;
+    max-width: 560px;
     display: flex;
     gap: 10px;
     align-items: flex-end;
