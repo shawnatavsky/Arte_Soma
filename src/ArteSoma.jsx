@@ -215,7 +215,7 @@ const styles = `
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 48px 24px 180px;
+    padding: 48px 24px 80px;
     font-family: 'Karla', sans-serif;
   }
 
