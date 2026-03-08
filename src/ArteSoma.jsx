@@ -726,13 +726,23 @@ export default function ArteSoma() {
      </details>
   </>
 )}
-          <div className="chat-window">
-<style>{`
-  @keyframes fadeSlideIn {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-`}</style>
+<div className="chat-window">
+{messages.map((msg, i) => {
+  const isLatestAssistant = i === messages.length - 1 && msg.role === "assistant";
+  return (
+    <div key={`${i}-${messages.length}`} className={`message ${msg.role}`}>
+      <div
+        className="bubble"
+        style={isLatestAssistant ? {
+          opacity: 0,
+          animation: "fadeSlideIn 0.8s ease 0.05s forwards"
+        } : {}}
+      >
+        {msg.content}
+      </div>
+    </div>
+  );
+})}
             {loading && (
               <div className="message assistant">
                 <div className="typing-indicator">
