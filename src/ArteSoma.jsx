@@ -191,8 +191,8 @@ const INTRO_NOTE = {
 };
 
 const INIT_INSTRUCTION = {
-  en: "Answer any or all of the questions below — you can number your answers to match, or just write freely. Up to 5 practices are available each day.",
-  es: "Responde una o todas las preguntas a continuación — puedes numerar tus respuestas o simplemente escribir libremente. Hay hasta 5 prácticas disponibles por día.",
+  en: "Answer any or all of the questions below — you can write freely or respond to just one. Up to 5 practices are available each day.",
+  es: "Responde una o todas las preguntas a continuación — puedes escribir libremente o responder solo una. Hay hasta 5 prácticas disponibles por día.",
 };
 
 const LIMIT_MSG = {
@@ -545,7 +545,7 @@ export default function ArteSoma() {
           model: "claude-sonnet-4-20250514",
           max_tokens: 1000,
           system: SYSTEM_PROMPT,
-          messages: [{ role: "user", content: `__init__ ${langNote} Number the questions 1–4.` }],
+          messages: [{ role: "user", content: `__init__ ${langNote}` }],
         }),
       });
       const data = await res.json();
