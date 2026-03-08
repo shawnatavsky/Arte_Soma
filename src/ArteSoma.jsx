@@ -580,8 +580,7 @@ export default function ArteSoma() {
           model: "claude-sonnet-4-20250514",
           max_tokens: 1000,
           system: SYSTEM_PROMPT,
-          messages: [{ role: "user", content: `__init__ ${langNote}` }],
-        }),
+          messages: [{ role: "user", content: `__init__ ${langNote} Present the questions as a compact list with no blank lines between items.` }],        }),
       });
       const data = await res.json();
       const text = data.content?.map(b => b.text || "").join("") || "";
