@@ -627,13 +627,15 @@ export default function ArteSoma() {
       });
       const data = await res.json();
       const text = data.content?.map(b => b.text || "").join("") || "";
-      setMessages(prev => [...prev, { role: "assistant", content: text }]);
+    setMessages(prev => [...prev, { role: "assistant", content: text }]);
 
-      if (looksLikePractice(text)) {
-        const newCount = await incrementUsage();
-        setUsageCount(newCount);
-        if (newCount >= MAX_DAILY) setLimitReached(true);
-      }
+setTimeout(async () => {
+  if (looksLikePractice(text)) {
+    const newCount = await incrementUsage();
+    setUsageCount(newCount);
+    if (newCount >= MAX_DAILY) setLimitReached(true);
+  }
+}, 100);
     } catch {
       setMessages(prev => [...prev, { role: "assistant", content: "Something went wrong. Please try again." }]);
     }
