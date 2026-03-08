@@ -544,7 +544,7 @@ async function getUsage() {
   try {
     const result = await localGet(STORAGE_KEY);
     if (!result) return { date: todayKey(), count: 0 };
-    const data = JSON.parse(result.value);
+    const data = JSON.parse(result);
     if (data.date !== todayKey()) return { date: todayKey(), count: 0 };
     return data;
   } catch {
