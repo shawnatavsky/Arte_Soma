@@ -671,15 +671,12 @@ export default function ArteSoma() {
 
  return (
   <div className="app">
-    <style>{`
-      @keyframes fadeSlideIn {
-        0% { opacity: 0; transform: translateY(16px); }
-        100% { opacity: 1; transform: translateY(0); }
-      }
-      .bubble-animate {
-        animation: fadeSlideIn 0.6s ease forwards;
-      }
-    `}</style>
+<style>{`
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+`}</style>
       <div className="header">
       <img src="/logo.png" alt="Arte Soma" className="header-logo" />
       <p className="header-byline">Micro-Practice Generator</p>
@@ -730,13 +727,12 @@ export default function ArteSoma() {
   </>
 )}
           <div className="chat-window">
-{messages.map((msg, i) => (
-  <div key={`${msg.role}-${i}-${msg.content.slice(0, 20)}`} className={`message ${msg.role}`}>
-    <div className={`bubble ${i === messages.length - 1 && msg.role === "assistant" ? "bubble-animate" : ""}`}>
-      {msg.content}
-    </div>
-  </div>
-))}
+<style>{`
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+`}</style>
             {loading && (
               <div className="message assistant">
                 <div className="typing-indicator">
