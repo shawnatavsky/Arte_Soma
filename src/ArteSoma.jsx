@@ -760,7 +760,8 @@ setTimeout(async () => {
           </div>
 
           <div className="input-area">
-          <div style={{ width: "100%", maxWidth: "620px" }}>
+                  <div style={{ width: "100%", maxWidth: "620px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+
           <div className="input-row">
                 <textarea
                   ref={textareaRef}
