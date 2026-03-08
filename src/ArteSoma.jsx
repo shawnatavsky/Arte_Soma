@@ -561,7 +561,7 @@ async function incrementUsage() {
 
 // Simple heuristic: response is a generated practice if it's long and structured
 const looksLikePractice = (text) =>
-  text.length > 300 && /neuroarts|note:|nota:/i.test(text);
+  text.length > 200 && /neuroarts|note|nota|title|título/i.test(text);
 
 // ── Component ────────────────────────────────────────────────────────────────
 
