@@ -540,6 +540,14 @@ const SendIcon = () => (
 
 const todayKey = () => new Date().toISOString().slice(0, 10);
 
+async function localGet(key) {
+  return localStorage.getItem(key);
+}
+
+async function localSet(key, value) {
+  localStorage.setItem(key, value);
+}
+
 async function getUsage() {
   try {
     const result = await localGet(STORAGE_KEY);
