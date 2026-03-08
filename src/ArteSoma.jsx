@@ -204,9 +204,9 @@ const styles = `
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #f5f0eb; }
 
-   @keyframes fadeSlideIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
+ @keyframes fadeSlideIn {
+    0% { opacity: 0; transform: translateY(16px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
 
   .app {
@@ -669,8 +669,17 @@ export default function ArteSoma() {
 
   if (!ready) return null;
 
-  return (
-    <div className="app">
+ return (
+  <div className="app">
+    <style>{`
+      @keyframes fadeSlideIn {
+        0% { opacity: 0; transform: translateY(16px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      .bubble-animate {
+        animation: fadeSlideIn 0.6s ease forwards;
+      }
+    `}</style>
       <div className="header">
       <img src="/logo.png" alt="Arte Soma" className="header-logo" />
       <p className="header-byline">Micro-Practice Generator</p>
@@ -721,13 +730,10 @@ export default function ArteSoma() {
   </>
 )}
           <div className="chat-window">
-         {messages.map((msg, i) => (
-          <div key={i} className={`message ${msg.role}`}>
-            <div
-            className="bubble"
-            style={{ animation: i === messages.length - 1 && msg.role === "assistant" ? "fadeSlideIn 0.6s ease forwards" : "none" }}
-          >
-            {msg.content}
+{messages.map((msg, i) => (
+  <div key={i} className={`message ${msg.role}`}>
+    <div className={`bubble ${i === messages.length - 1 && msg.role === "assistant" ? "bubble-animate" : ""}`}>
+      {msg.content}
     </div>
   </div>
 ))}
