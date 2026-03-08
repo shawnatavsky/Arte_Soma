@@ -341,6 +341,11 @@ const styles = `
     display: none;
   }
 
+  details[open] .intro-note,
+  details[open] .instruction-note {
+    animation: fadeSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
   .intro-note {
     width: 100%;
     max-width: 620px;
@@ -502,8 +507,8 @@ const styles = `
     font-weight: 400;
     color: #5a5248;
     text-decoration: none;
-    margin-bottom: 10px;
-    margin-top: 4px;
+    margin-bottom: 16px;
+    margin-top: 16px;
     letter-spacing: 0.03em;
     transition: color 0.2s;
   }
