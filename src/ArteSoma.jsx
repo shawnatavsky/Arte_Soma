@@ -381,7 +381,7 @@ const styles = `
 
   .message { display: flex; flex-direction: column; }
   .message.user { align-items: flex-end; }
-  .message.assistant { align-items: flex-start; }
+  .message.assistant { align-items: center; }
 
   .bubble {
     max-width: 88%;
