@@ -721,11 +721,16 @@ export default function ArteSoma() {
   </>
 )}
           <div className="chat-window">
-            {messages.map((msg, i) => (
-              <div key={i} className={`message ${msg.role}`}>
-                <div className="bubble">{msg.content}</div>
-              </div>
-            ))}
+         {messages.map((msg, i) => (
+          <div key={i} className={`message ${msg.role}`}>
+            <div
+            className="bubble"
+            style={{ animation: i === messages.length - 1 && msg.role === "assistant" ? "fadeSlideIn 0.6s ease forwards" : "none" }}
+          >
+            {msg.content}
+    </div>
+  </div>
+))}
             {loading && (
               <div className="message assistant">
                 <div className="typing-indicator">
