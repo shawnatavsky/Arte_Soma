@@ -384,7 +384,7 @@ const styles = `
   .message.assistant { align-items: center; }
 
   .bubble {
-    max-width: 88%;
+    max-width: 96%;
     padding: 16px 20px;
     line-height: 1.75;
     font-size: 0.92rem;
