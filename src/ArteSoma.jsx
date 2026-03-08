@@ -756,7 +756,7 @@ export default function ArteSoma() {
                   <SendIcon />
                 </button>
               </div>
-              <p className="coffee-link"
+              <a className="coffee-link"
   href="https://buymeacoffee.com/shawnatavsky"
   target="_blank"
   rel="noopener noreferrer"
