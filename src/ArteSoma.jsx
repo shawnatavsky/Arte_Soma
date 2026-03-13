@@ -698,11 +698,7 @@ setTimeout(async () => {
       <div className="top-controls">
         <button className={`lang-btn ${lang === "en" ? "active" : ""}`} onClick={() => handleLang("en")}>EN</button>
         <button className={`lang-btn ${lang === "es" ? "active" : ""}`} onClick={() => handleLang("es")}>ES</button>
-        {!limitReached && (
-          <button className="reset-btn" onClick={handleReset}>
-            ↺ {lang === "es" ? "reiniciar" : "reset"}
-          </button>
-        )}
+       
       </div>
 
      <div className="usage-indicator" title={`${usageCount} of ${MAX_DAILY} practices today`}>
