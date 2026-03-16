@@ -310,7 +310,7 @@ const styles = `
     color: #5a5248;
     text-align: center;
     line-height: 1.7;
-    margin-top: 16px;
+    margin-top: 26px;
     white-space: pre-wrap;
   }
 
