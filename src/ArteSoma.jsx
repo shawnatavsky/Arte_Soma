@@ -187,7 +187,7 @@ When in doubt, choose allowance over control, fewer instructions over more, and 
 
 const INTRO_NOTE = {
   en: "No agenda. Attention practices shaped by your inputs.\nAdds a neuroarts note on what's happening perceptually. Up to 5 a day.",
-  es: "Sin agenda. Prácticas de atención moldeadas por tus respuestas. Una nota de neurociencias de las artes sobre lo que ocurre perceptivamente. Hasta 5 por día.",
+  es: "Sin agenda. Prácticas de atención moldeadas por tus respuestas.\nUna nota de neurociencias de las artes sobre lo que ocurre perceptivamente. Hasta 5 por día.",
 };
 
 
