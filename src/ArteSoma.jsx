@@ -215,7 +215,7 @@ const styles = `
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 48px 24px 50px;
+    padding: 48px 24px 48px;
     font-family: 'Karla', sans-serif;
   }
 
@@ -406,10 +406,10 @@ const styles = `
   }
 
 .input-area {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: linear-gradient(to top, #f5f0eb 80%, transparent);
-    padding: 8px 24px 32px;
+    position: static;
+    width: 100%;
+    background: transparent;
+    padding: 24px 24px 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
