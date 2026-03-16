@@ -186,8 +186,8 @@ Guiding Heuristic
 When in doubt, choose allowance over control, fewer instructions over more, and openness over correctness.`;
 
 const INTRO_NOTE = {
-  en: "No agenda. Attention practices shaped by your inputs.\nAdds a neuroarts note on what's happening perceptually. Up to 5 a day.",
-  es: "Sin agenda. Prácticas de atención moldeadas por tus respuestas.\nUna nota de neurociencias de las artes sobre lo que ocurre perceptivamente. Hasta 5 por día.",
+  en: "No agenda. Attention practices shaped by your inputs.\nA neuroarts note on what's happening perceptually. Up to 5 a day.",
+  es: "Sin agenda. Prácticas de atención moldeadas por tus respuestas. Una nota de neurociencias de las artes sobre lo que ocurre perceptivamente. Hasta 5 por día.",
 };
 
 
@@ -215,7 +215,7 @@ const styles = `
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 48px 24px 180px;
+    padding: 48px 24px 50px;
     font-family: 'Karla', sans-serif;
   }
 
@@ -303,7 +303,6 @@ const styles = `
   .intro-note {
     width: 100%;
     max-width: 620px;
-    margin-bottom: 30px;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1rem;
     font-weight: 300;
@@ -311,6 +310,7 @@ const styles = `
     text-align: center;
     line-height: 1.7;
     margin-top: 16px;
+    margin-bottom: 32px;
     white-space: pre-wrap;
   }
 
@@ -355,7 +355,7 @@ const styles = `
   }
   .message.assistant .bubble {
     background: #fff;
-    border-radius: 16px 16px 16px 2px;
+    border-radius: 16px;
     border: 1px solid #e8e0d6;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.08rem;
