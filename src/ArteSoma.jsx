@@ -303,14 +303,14 @@ const styles = `
   .intro-note {
     width: 100%;
     max-width: 620px;
-    margin-bottom: 12px;
+    margin-bottom: 30px;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1rem;
     font-weight: 300;
     color: #5a5248;
     text-align: center;
     line-height: 1.7;
-    margin-top: 26px;
+    margin-top: 16px;
     white-space: pre-wrap;
   }
 
