@@ -186,7 +186,7 @@ Guiding Heuristic
 When in doubt, choose allowance over control, fewer instructions over more, and openness over correctness.`;
 
 const INTRO_NOTE = {
-  en: "No agenda. Attention practices shaped by your inputs. A neuroarts note on what's happening perceptually. Up to 5 a day.",
+  en: "No agenda. Attention practices shaped by your inputs.\nA neuroarts note on what's happening perceptually. Up to 5 a day.",
   es: "Sin agenda. Prácticas de atención moldeadas por tus respuestas. Una nota de neurociencias de las artes sobre lo que ocurre perceptivamente. Hasta 5 por día.",
 };
 
@@ -311,6 +311,7 @@ const styles = `
     text-align: center;
     line-height: 1.7;
     margin-top: 16px;
+    white-space: pre-wrap;
   }
 
   .instruction-note {
