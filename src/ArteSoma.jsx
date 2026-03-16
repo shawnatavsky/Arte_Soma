@@ -186,8 +186,8 @@ Guiding Heuristic
 When in doubt, choose allowance over control, fewer instructions over more, and openness over correctness.`;
 
 const INTRO_NOTE = {
-  en: "This tool is for moments when you want to slow down and notice — without an agenda. It generates short creative micro-practices shaped by your inputs, designed for present engagement, and accompanied by a brief neuroarts-informed note on the perceptual processes involved.",
-  es: "Esta herramienta es para los momentos en que quieres ralentizar y notar — sin una agenda. Genera micro-prácticas creativas breves moldeadas por tus respuestas, diseñadas para el compromiso presente, y acompañadas de una breve nota informada por las neurociencias de las artes sobre los procesos perceptivos involucrados.",
+  en: "No agenda. Attention practices shaped by your inputs. A neuroarts note on what's happening perceptually. Up to 5 a day.",
+  es: "Sin agenda. Prácticas de atención moldeadas por tus respuestas. Una nota de neurociencias de las artes sobre lo que ocurre perceptivamente. Hasta 5 por día.",
 };
 
 
@@ -299,52 +299,6 @@ const styles = `
     transition: background 0.4s, border-color 0.4s;
   }
   .usage-dot.used { background: #9a8f85; border-color: #9a8f85; }
-
-  .intro-dropdown {
-    width: 100%;
-    max-width: 620px;
-    margin-bottom: 28px;
-    text-align: center;
-  }
-
-  .intro-summary {
-    font-family: 'Karla', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 400;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #6a6158;
-    cursor: pointer;
-    list-style: none;
-    display: inline-block;
-    padding: 5px 14px;
-    border-radius: 20px;
-    border: 1px solid #b5aca3;
-    background: transparent;
-    transition: all 0.2s;
-  }
-
-  .intro-summary:hover {
-    color: #2a2520;
-    border-color: #6a6158;
-  }
-
-  .intro-summary::-webkit-details-marker {
-    display: none;
-  }
-
-  details:not([open]) .intro-summary-close {
-    display: none;
-  }
-
-  details[open] .intro-summary-open {
-    display: none;
-  }
-
- details[open] .intro-note,
-  details[open] .instruction-note {
-    animation: fadeSlideIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
 
   .intro-note {
     width: 100%;
@@ -712,27 +666,7 @@ setTimeout(async () => {
       ) : (
         <>
      {messages.length > 0 && (
-  <>
-    <details className="intro-dropdown">
-     <summary className="intro-summary">
-        {lang === "es"
-          ? "¿Cómo usar esta herramienta?"
-          : "How to use this tool"}
-        <span className="intro-summary-open"> ﹢</span>
-        <span className="intro-summary-close"> ﹣</span>
-      </summary>
-      <p className="intro-note">{INTRO_NOTE[lang]}</p>
-      <p className="instruction-note">
-        {lang === "es"
-          ? "Responde una o todas las preguntas a continuación — puedes escribir libremente o responder solo una."
-          : "Answer any or all of the questions below — you can write freely or respond to just one."}
-        <br />
-        {lang === "es"
-          ? "Hay hasta 5 prácticas disponibles por día."
-          : "Up to 5 practices are available each day."}
-      </p>
-     </details>
-  </>
+  <p className="intro-note">{INTRO_NOTE[lang]}</p>
 )}
 <div className="chat-window">
 {messages.map((msg, i) => {
