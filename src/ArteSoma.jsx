@@ -727,8 +727,8 @@ setTimeout(async () => {
   rel="noopener noreferrer"
 >
   {lang === "es"
-    ? "Si esta herramienta te es útil, puedes invitarme un café ☕ 🙏"
-    : "If this tool is useful, you're welcome to buy me a coffee ☕ 🙏"}
+    ? "Esta herramienta es gratuita. Si te ha sido útil y quieres apoyar el trabajo, un café siempre es bienvenido ☕"
+    : "This tool is free. If it's been useful and you'd like to support the work, a coffee is always welcome ☕"}
 </a>
 <p className="disclaimer">
   {lang === "es"
