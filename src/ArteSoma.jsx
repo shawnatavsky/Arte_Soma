@@ -562,8 +562,8 @@ export default function ArteSoma() {
 
   const initConversation = (currentLang) => {
     const questions = currentLang === "es"
-      ? `• ¿Cuánto tiempo tienes disponible: 2, 5 o 10 minutos?\n• Modalidad: escribir, dibujar, cuerpo, fotografía u observar?\n• Estado actual (opcional): disperso, tenso, curioso, incierto, abierto?\n• ¿Alguna otra preferencia? (opcional)`
-      : `• Time available: 2, 5, or 10 minutes?\n• Modality: write, draw, body, photography, or observe?\n• Current state (optional): scattered, tense, curious, uncertain, open?\n• Any other preferences? (optional)`;
+      ? `• ¿Cuánto tiempo tienes disponible: 2, 5 o 10 minutos?\n• Modalidad: escribir, dibujar, fotografíar u observar?\n• Estado actual (opcional): disperso, tenso, curioso, incierto, abierto?\n• ¿Alguna otra preferencia? (opcional)`
+      : `• Time available: 2, 5, or 10 minutes?\n• Modality: write, draw, photograph, or observe?\n• Current state (optional): scattered, tense, curious, uncertain, open?\n• Any other preferences? (optional)`;
     setMessages([{ role: "assistant", content: questions }]);
   };
 
