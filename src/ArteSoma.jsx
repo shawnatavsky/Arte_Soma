@@ -643,7 +643,7 @@ setTimeout(async () => {
   <div className="app">
 
       <div className="header">
-    <a href="https://artesoma.space" target="_blank" rel="noopener noreferrer">
+    <a href="https://artesoma.space" rel="noopener noreferrer">
   <img src="/logo.png" alt="Arte Soma" className="header-logo" />
 </a>
       <p className="header-byline">Micro-Practice Generator - v.01</p>
