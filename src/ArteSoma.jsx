@@ -222,7 +222,7 @@ const styles = `
   .header { text-align: center; margin-bottom: 28px; }
 
  .header-logo {
-    height: 80px;
+    height: 40px;
     width: auto;
     display: block;
     margin: 0 auto;
