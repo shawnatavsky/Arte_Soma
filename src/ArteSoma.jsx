@@ -732,8 +732,8 @@ setTimeout(async () => {
 </a>
 <p className="disclaimer">
   {lang === "es"
-    ? "No es consejo terapéutico · Diseñado por Shawna Tavsky"
-    : "Not therapeutic advice · Designed by Shawna Tavsky"}
+    ? "No es consejo terapéutico · Diseñado por Shawna Tavsky · Con technología de Claude (Anthropic)"
+    : "Not therapeutic advice · Designed by Shawna Tavsky · Powered by Claude (Anthropic)"}
 </p>
             </div>
           </div>
