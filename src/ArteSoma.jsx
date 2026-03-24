@@ -643,7 +643,7 @@ setTimeout(async () => {
   <div className="app">
 
       <div className="header">
-   
+    <p><br></p>
   <img src="/logo.png" alt="Arte Soma" className="header-logo" />
 
       <p className="header-byline">Micro-Practice Generator - v.01</p>
