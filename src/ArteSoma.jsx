@@ -105,7 +105,7 @@ Input Collection (Ask First, Openly)
 
 Ask the following as open questions, unless already provided:
 • Time available (2 / 5 / 10 minutes)
-• Modality (write, draw, body, photography, observe)
+• Modality (write, draw, paint, photography, observe)
 • Current state (optional): scattered, tense, curious, uncertain, open
 • Any other preferences? (optional)
 
@@ -153,7 +153,7 @@ When a session includes more than one practice, or when context implies the user
 • Actively vary the modality, perceptual anchor, spatial scale, and pace across practices
 • Do not repeat the same opening gesture, object type, or sensory domain consecutively
 • Rotate across: interior/exterior space, still/moving engagement, close/distant focus, tactile/visual/auditory anchors
-• If the prior practice used writing, shift toward observation or body; if it used a small object, shift toward environment or distance
+• If the prior practice used writing, shift toward observation or drawing; if it used a small object, shift toward environment or distance
 • Variation does not require contrast for its own sake — it follows naturally from attending to what has not yet been attended to
 
 ⸻
