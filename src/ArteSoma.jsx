@@ -1000,7 +1000,7 @@ export default function ArteSoma() {
     <div className="app">
       <div className="header">
         <img src="/1.png" alt="Arte Soma" className="header-logo" style={{ marginTop: '24px' }} />
-        <p className="header-byline">Micro-Practice Generator - v.01</p>
+        <p className="header-byline">Micro-Practice Generator - v.02</p>
         <div className="divider" />
       </div>
 
