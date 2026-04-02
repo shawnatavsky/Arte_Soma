@@ -14,12 +14,7 @@ Use descriptive, neutral, non-evaluative language.
 
 Initial Interaction Behavior (Required)
 
-When the tool is opened for the first time, immediately ask the input questions without waiting for user input.
-
-Do not include a greeting, explanation, instructions, or preamble.
-Begin directly with the questions listed in the Input Collection section.
-
-This behavior applies whenever a new conversation is started.
+The user's inputs will be provided to you directly as a structured message. Do not ask for any further clarifying questions. Proceed immediately to generating the practice based on the inputs provided.
 
 ⸻
 
@@ -101,18 +96,9 @@ Practices must remain valid even if movement, attention, pacing, or engagement f
 
 ⸻
 
-Input Collection (Ask First, Openly)
+Input Collection
 
-Ask the following as open questions, unless already provided:
-• Time available (2 / 5 / 10 minutes)
-• Modality (write, draw, paint, photography, observe)
-• Current state (optional): scattered, tense, curious, uncertain, open
-• Any other preferences? (optional)
-
-The current state and preferences are contextual only and should not be addressed or resolved.
-
-If none are provided, ask all questions.
-If some are provided, ask only for what is missing.
+The user's time, modality, current state, and any preferences have already been collected and will be provided to you. Generate the practice directly from those inputs without asking further questions.
 
 ⸻
 
@@ -190,8 +176,6 @@ const INTRO_NOTE = {
   es: "Prácticas de atención moldeadas por tus respuestas.\nHasta 5 por día.",
 };
 
-
-
 const LIMIT_MSG = {
   en: "You've reached the 5 practice limit for today.\nThis tool is designed for slow, spaced use.\nCome back tomorrow.",
   es: "Has alcanzado el límite de 5 prácticas por hoy.\nEsta herramienta está pensada para un uso lento y espaciado.\nVuelve mañana.",
@@ -204,8 +188,13 @@ const styles = `
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #f5f0eb; }
 
-    @keyframes fadeSlideIn {
+  @keyframes fadeSlideIn {
     from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
@@ -221,7 +210,7 @@ const styles = `
 
   .header { text-align: center; margin-bottom: 28px; }
 
- .header-logo {
+  .header-logo {
     height: 40px;
     width: auto;
     display: block;
@@ -314,18 +303,6 @@ const styles = `
     white-space: pre-wrap;
   }
 
-  .instruction-note {
-    width: 100%;
-    max-width: 620px;
-    margin-bottom: 12px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    font-weight: 300;
-    color: #5a5248;
-    text-align: center;
-    line-height: 1.7;
-  }
-
   .chat-window {
     width: 100%;
     max-width: 620px;
@@ -363,7 +340,6 @@ const styles = `
     color: #1a1510;
     line-height: 1.9;
     width: 100%;
-
   }
 
   .limit-notice {
@@ -405,7 +381,7 @@ const styles = `
     40% { opacity: 1; transform: scale(1); }
   }
 
-.input-area {
+  .input-area {
     position: static;
     width: 100%;
     background: transparent;
@@ -467,12 +443,9 @@ const styles = `
     letter-spacing: 0.03em;
     transition: color 0.2s;
   }
+  .coffee-link:hover { color: #2a2520; }
 
-  .coffee-link:hover {
-    color: #2a2520;
-  }
-
-.disclaimer {
+  .disclaimer {
     text-align: center;
     font-size: 0.68rem;
     font-weight: 300;
@@ -483,6 +456,165 @@ const styles = `
     width: 100%;
     max-width: 620px;
   }
+
+  /* ── Intake form ─────────────────────────────────────────── */
+
+  .intake-wrap {
+    width: 100%;
+    max-width: 620px;
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  .intake-card {
+    background: #fff;
+    border: 1px solid #e8e0d6;
+    border-radius: 16px;
+    padding: 28px 28px 24px;
+    width: 100%;
+  }
+
+  .intake-question {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.08rem;
+    font-weight: 300;
+    color: #1a1510;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .intake-question .step-label {
+    display: block;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8a8078;
+    margin-bottom: 8px;
+  }
+
+  .option-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .option-btn {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: 1px solid #d4ccc5;
+    background: transparent;
+    color: #5a5248;
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .option-btn:hover { border-color: #9a8f85; color: #2a2520; }
+  .option-btn.selected { background: #2a2520; color: #f5f0eb; border-color: #2a2520; }
+
+  .intake-text {
+    width: 100%;
+    border: 1px solid #d4ccc5;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: #2a2520;
+    background: transparent;
+    outline: none;
+    resize: none;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .intake-text::placeholder { color: #c9bfb5; }
+  .intake-text:focus { border-color: #9a8f85; }
+
+  .intake-hint {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: #8a8078;
+    margin-bottom: 14px;
+    font-style: italic;
+    letter-spacing: 0.02em;
+  }
+
+  .intake-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .intake-skip {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8a8078;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px 4px;
+    transition: color 0.2s;
+  }
+  .intake-skip:hover { color: #2a2520; }
+
+  .intake-next {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: none;
+    background: #2a2520;
+    color: #f5f0eb;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+  .intake-next:hover { opacity: 0.85; transform: scale(1.02); }
+  .intake-next:disabled { opacity: 0.35; cursor: default; transform: none; }
+
+  .intake-generate {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: none;
+    background: #ff7474;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+  .intake-generate:hover { opacity: 0.88; transform: scale(1.02); }
+  .intake-generate:disabled { opacity: 0.35; cursor: default; transform: none; }
+
+  .intake-progress {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+  }
+  .intake-progress-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #d4ccc5;
+    transition: background 0.3s;
+  }
+  .intake-progress-dot.active { background: #2a2520; }
+  .intake-progress-dot.done { background: #9a8f85; }
 `;
 
 const SendIcon = () => (
@@ -495,17 +627,9 @@ const SendIcon = () => (
 
 const todayKey = () => new Date().toISOString().slice(0, 10);
 
-async function localGet(key) {
-  return localStorage.getItem(key);
-}
-
-async function localSet(key, value) {
-  localStorage.setItem(key, value);
-}
-
 async function getUsage() {
   try {
-    const result = await localGet(STORAGE_KEY);
+    const result = localStorage.getItem(STORAGE_KEY);
     if (!result) return { date: todayKey(), count: 0 };
     const data = JSON.parse(result);
     if (data.date !== todayKey()) return { date: todayKey(), count: 0 };
@@ -518,15 +642,214 @@ async function getUsage() {
 async function incrementUsage() {
   const usage = await getUsage();
   const updated = { date: todayKey(), count: usage.count + 1 };
-  try { await localSet(STORAGE_KEY, JSON.stringify(updated)); } catch {}
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(updated)); } catch {}
   return updated.count;
 }
 
-// Simple heuristic: response is a generated practice if it's long and structured
 const looksLikePractice = (text) =>
   text.length > 200 && /neuroarts|note|nota|title|título/i.test(text);
 
-// ── Component ────────────────────────────────────────────────────────────────
+// ── Intake form steps ────────────────────────────────────────────────────────
+
+const STEPS = {
+  en: [
+    {
+      id: "time",
+      label: "1 of 4",
+      question: "How much time do you have?",
+      type: "buttons",
+      options: ["2 minutes", "5 minutes", "10 minutes"],
+      required: true,
+    },
+    {
+      id: "modality",
+      label: "2 of 4",
+      question: "What would you like to work with?",
+      type: "buttons",
+      options: ["write", "draw / paint", "photograph", "observe"],
+      required: true,
+    },
+    {
+      id: "state",
+      label: "3 of 4",
+      question: "Current state?",
+      type: "text",
+      placeholder: "e.g. scattered, tense, curious, open, uncertain…",
+      hint: "Optional — leave blank to skip",
+      required: false,
+    },
+    {
+      id: "other",
+      label: "4 of 4",
+      question: "Anything else?",
+      type: "text",
+      placeholder: "any other preferences or context…",
+      hint: "Optional — leave blank to skip",
+      required: false,
+    },
+  ],
+  es: [
+    {
+      id: "time",
+      label: "1 de 4",
+      question: "¿Cuánto tiempo tienes?",
+      type: "buttons",
+      options: ["2 minutos", "5 minutos", "10 minutos"],
+      required: true,
+    },
+    {
+      id: "modality",
+      label: "2 de 4",
+      question: "¿Con qué modalidad quieres trabajar?",
+      type: "buttons",
+      options: ["escribir", "dibujar / pintar", "fotografiar", "observar"],
+      required: true,
+    },
+    {
+      id: "state",
+      label: "3 de 4",
+      question: "¿Estado actual?",
+      type: "text",
+      placeholder: "ej. disperso, tenso, curioso, abierto, incierto…",
+      hint: "Opcional — deja en blanco para omitir",
+      required: false,
+    },
+    {
+      id: "other",
+      label: "4 de 4",
+      question: "¿Algo más?",
+      type: "text",
+      placeholder: "otras preferencias o contexto…",
+      hint: "Opcional — deja en blanco para omitir",
+      required: false,
+    },
+  ],
+};
+
+function buildFirstMessage(answers, lang) {
+  const a = answers;
+  if (lang === "es") {
+    const parts = [`Tiempo: ${a.time}`, `Modalidad: ${a.modality}`];
+    if (a.state) parts.push(`Estado actual: ${a.state}`);
+    if (a.other) parts.push(`Otras preferencias: ${a.other}`);
+    return parts.join("\n");
+  }
+  const parts = [`Time: ${a.time}`, `Modality: ${a.modality}`];
+  if (a.state) parts.push(`Current state: ${a.state}`);
+  if (a.other) parts.push(`Other preferences: ${a.other}`);
+  return parts.join("\n");
+}
+
+// ── IntakeForm component ─────────────────────────────────────────────────────
+
+function IntakeForm({ lang, onSubmit }) {
+  const [step, setStep] = useState(0);
+  const [answers, setAnswers] = useState({ time: "", modality: "", state: "", other: "" });
+  const steps = STEPS[lang];
+  const current = steps[step];
+
+  const handleSelect = (val) => {
+    setAnswers(prev => ({ ...prev, [current.id]: val }));
+  };
+
+  const handleText = (e) => {
+    setAnswers(prev => ({ ...prev, [current.id]: e.target.value }));
+  };
+
+  const canAdvance = current.required ? !!answers[current.id] : true;
+  const isLast = step === steps.length - 1;
+
+  const advance = () => {
+    if (isLast) {
+      onSubmit(answers);
+    } else {
+      setStep(s => s + 1);
+    }
+  };
+
+  const skip = () => {
+    setAnswers(prev => ({ ...prev, [current.id]: "" }));
+    if (isLast) {
+      onSubmit({ ...answers, [current.id]: "" });
+    } else {
+      setStep(s => s + 1);
+    }
+  };
+
+  return (
+    <div className="intake-wrap">
+      <div className="intake-progress">
+        {steps.map((_, i) => (
+          <div
+            key={i}
+            className={`intake-progress-dot ${i === step ? "active" : i < step ? "done" : ""}`}
+          />
+        ))}
+      </div>
+
+      <div className="intake-card" key={step} style={{ animation: "fadeIn 0.35s ease forwards" }}>
+        <div className="intake-question">
+          <span className="step-label">{current.label}</span>
+          {current.question}
+        </div>
+
+        {current.type === "buttons" && (
+          <div className="option-row">
+            {current.options.map(opt => (
+              <button
+                key={opt}
+                className={`option-btn ${answers[current.id] === opt ? "selected" : ""}`}
+                onClick={() => handleSelect(opt)}
+              >
+                {opt}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {current.type === "text" && (
+          <>
+            {current.hint && <p className="intake-hint">{current.hint}</p>}
+            <textarea
+              className="intake-text"
+              rows={2}
+              placeholder={current.placeholder}
+              value={answers[current.id]}
+              onChange={handleText}
+            />
+          </>
+        )}
+
+        <div className="intake-nav">
+          {!current.required && (
+            <button className="intake-skip" onClick={skip}>
+              {lang === "es" ? "omitir" : "skip"}
+            </button>
+          )}
+          {isLast ? (
+            <button
+              className="intake-generate"
+              onClick={advance}
+              disabled={!canAdvance}
+            >
+              {lang === "es" ? "generar" : "generate"}
+            </button>
+          ) : (
+            <button
+              className="intake-next"
+              onClick={advance}
+              disabled={!canAdvance}
+            >
+              {lang === "es" ? "siguiente" : "next"}
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Main component ───────────────────────────────────────────────────────────
 
 export default function ArteSoma() {
   const [messages, setMessages] = useState([]);
@@ -536,6 +859,8 @@ export default function ArteSoma() {
   const [usageCount, setUsageCount] = useState(0);
   const [limitReached, setLimitReached] = useState(false);
   const [ready, setReady] = useState(false);
+  // intake = "form" | "done"
+  const [intakeState, setIntakeState] = useState("form");
   const bottomRef = useRef(null);
   const textareaRef = useRef(null);
 
@@ -552,7 +877,6 @@ export default function ArteSoma() {
       const over = count >= MAX_DAILY;
       setLimitReached(over);
       setReady(true);
-      if (!over) initConversation(lang);
     });
   }, []);
 
@@ -560,11 +884,44 @@ export default function ArteSoma() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
 
-  const initConversation = (currentLang) => {
-    const questions = currentLang === "es"
-      ? `• ¿Cuánto tiempo tienes disponible: 2, 5 o 10 minutos?\n• Modalidad: escribir, dibujar, fotografíar u observar?\n• Estado actual (opcional): disperso, tenso, curioso, incierto, abierto?\n• ¿Alguna otra preferencia? (opcional)`
-      : `• Time available: 2, 5, or 10 minutes?\n• Modality: write, draw, photograph, or observe?\n• Current state (optional): scattered, tense, curious, uncertain, open?\n• Any other preferences? (optional)`;
-    setMessages([{ role: "assistant", content: questions }]);
+  const handleIntakeSubmit = async (answers) => {
+    setIntakeState("done");
+    const firstMsg = buildFirstMessage(answers, lang);
+    const userMsg = { role: "user", content: firstMsg };
+    const updated = [userMsg];
+    setMessages(updated);
+
+    setLoading(true);
+    const langNote = lang === "es"
+      ? "The user has selected Spanish. Generate all content in Spanish."
+      : "The user has selected English. Generate all content in English.";
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 1000,
+          system: SYSTEM_PROMPT + `\n\n[${langNote}]`,
+          messages: updated.map(m => ({ role: m.role, content: m.content })),
+        }),
+      });
+      const data = await res.json();
+      const text = data.content?.map(b => b.text || "").join("") || "";
+      setMessages(prev => [...prev, { role: "assistant", content: text }]);
+
+      setTimeout(async () => {
+        if (looksLikePractice(text)) {
+          const newCount = await incrementUsage();
+          setUsageCount(newCount);
+          if (newCount >= MAX_DAILY) setLimitReached(true);
+        }
+      }, 100);
+    } catch {
+      setMessages(prev => [...prev, { role: "assistant", content: "Something went wrong. Please try again." }]);
+    }
+    setLoading(false);
   };
 
   const handleSend = async () => {
@@ -579,8 +936,8 @@ export default function ArteSoma() {
 
     setLoading(true);
     const langNote = lang === "es"
-      ? "The user has selected Spanish. Ask all questions in Spanish and generate all content in Spanish."
-      : "The user has selected English. Ask all questions in English and generate all content in English.";
+      ? "The user has selected Spanish. Generate all content in Spanish."
+      : "The user has selected English. Generate all content in English.";
 
     try {
       const res = await fetch("/api/chat", {
@@ -589,21 +946,21 @@ export default function ArteSoma() {
         body: JSON.stringify({
           model: "claude-sonnet-4-20250514",
           max_tokens: 1000,
-          system: SYSTEM_PROMPT + `\n\n[${langNote}] Important: Do not repeat questions that have already been asked. If the only remaining questions are optional ones, do not ask them again — proceed directly to generating the practice.`,
+          system: SYSTEM_PROMPT + `\n\n[${langNote}] Important: Do not repeat questions that have already been asked. Proceed directly to generating a practice.`,
           messages: updated.map(m => ({ role: m.role, content: m.content })),
         }),
       });
       const data = await res.json();
       const text = data.content?.map(b => b.text || "").join("") || "";
-    setMessages(prev => [...prev, { role: "assistant", content: text }]);
+      setMessages(prev => [...prev, { role: "assistant", content: text }]);
 
-setTimeout(async () => {
-  if (looksLikePractice(text)) {
-    const newCount = await incrementUsage();
-    setUsageCount(newCount);
-    if (newCount >= MAX_DAILY) setLimitReached(true);
-  }
-}, 100);
+      setTimeout(async () => {
+        if (looksLikePractice(text)) {
+          const newCount = await incrementUsage();
+          setUsageCount(newCount);
+          if (newCount >= MAX_DAILY) setLimitReached(true);
+        }
+      }, 100);
     } catch {
       setMessages(prev => [...prev, { role: "assistant", content: "Something went wrong. Please try again." }]);
     }
@@ -614,8 +971,8 @@ setTimeout(async () => {
     if (limitReached) return;
     setMessages([]);
     setInput("");
+    setIntakeState("form");
     if (textareaRef.current) textareaRef.current.style.height = "auto";
-    initConversation(lang);
   };
 
   const handleLang = (newLang) => {
@@ -623,8 +980,8 @@ setTimeout(async () => {
     setLang(newLang);
     setMessages([]);
     setInput("");
+    setIntakeState("form");
     if (textareaRef.current) textareaRef.current.style.height = "auto";
-    initConversation(newLang);
   };
 
   const handleKeyDown = (e) => {
@@ -639,104 +996,114 @@ setTimeout(async () => {
 
   if (!ready) return null;
 
- return (
-  <div className="app">
-
+  return (
+    <div className="app">
       <div className="header">
- 
-  <img src="/1.png" alt="Arte Soma" className="header-logo" style={{ marginTop: '24px' }} />
-
-      <p className="header-byline">Micro-Practice Generator - v.01</p>
+        <img src="/1.png" alt="Arte Soma" className="header-logo" style={{ marginTop: '24px' }} />
+        <p className="header-byline">Micro-Practice Generator - v.01</p>
         <div className="divider" />
       </div>
 
       <div className="top-controls">
         <button className={`lang-btn ${lang === "en" ? "active" : ""}`} onClick={() => handleLang("en")}>EN</button>
         <button className={`lang-btn ${lang === "es" ? "active" : ""}`} onClick={() => handleLang("es")}>ES</button>
-       
+        {intakeState === "done" && !limitReached && (
+          <button className="reset-btn" onClick={handleReset}>
+            {lang === "es" ? "reiniciar" : "reset"}
+          </button>
+        )}
       </div>
 
-     <div className="usage-indicator" title={`${usageCount} of ${MAX_DAILY} practices today`}>
-  {Array.from({ length: MAX_DAILY }).map((_, i) => (
-    <div key={i} className={`usage-dot ${i < usageCount ? "used" : ""}`} />
-  ))}
-</div>
+      <div className="usage-indicator" title={`${usageCount} of ${MAX_DAILY} practices today`}>
+        {Array.from({ length: MAX_DAILY }).map((_, i) => (
+          <div key={i} className={`usage-dot ${i < usageCount ? "used" : ""}`} />
+        ))}
+      </div>
 
       {limitReached ? (
         <div className="limit-notice">{LIMIT_MSG[lang]}</div>
       ) : (
         <>
-     {messages.length > 0 && (
-  <p className="intro-note">{INTRO_NOTE[lang]}</p>
-)}
-<div className="chat-window">
-{messages.map((msg, i) => {
-  const isNew = i === messages.length - 1 && msg.role === "assistant";
-  return (
-    <div key={msg.content.slice(0, 30) + i} className={`message ${msg.role}`}>
-     <div
-        className="bubble"
-        style={isNew ? {
-          opacity: 0,
-          animation: "fadeSlideIn 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards"
-        } : {}}
-        dangerouslySetInnerHTML={{
-          __html: msg.content
-            .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-            .replace(/\*(.+?)\*/g, "<em>$1</em>")
-            .replace(/\n/g, "<br/>")
-        }}
-      />
-    </div>
-  );
-})}
-            {loading && (
-              <div className="message assistant">
-                <div className="typing-indicator">
-                  <div className="dot" /><div className="dot" /><div className="dot" />
+          {intakeState === "form" && (
+            <IntakeForm lang={lang} onSubmit={handleIntakeSubmit} />
+          )}
+
+          {intakeState === "done" && (
+            <>
+              {messages.length > 0 && (
+                <p className="intro-note">{INTRO_NOTE[lang]}</p>
+              )}
+              <div className="chat-window">
+                {messages.map((msg, i) => {
+                  // hide the raw intake user message
+                  if (i === 0 && msg.role === "user") return null;
+                  const isNew = i === messages.length - 1 && msg.role === "assistant";
+                  return (
+                    <div key={msg.content.slice(0, 30) + i} className={`message ${msg.role}`}>
+                      <div
+                        className="bubble"
+                        style={isNew ? {
+                          opacity: 0,
+                          animation: "fadeSlideIn 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards"
+                        } : {}}
+                        dangerouslySetInnerHTML={{
+                          __html: msg.content
+                            .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+                            .replace(/\*(.+?)\*/g, "<em>$1</em>")
+                            .replace(/\n/g, "<br/>")
+                        }}
+                      />
+                    </div>
+                  );
+                })}
+                {loading && (
+                  <div className="message assistant">
+                    <div className="typing-indicator">
+                      <div className="dot" /><div className="dot" /><div className="dot" />
+                    </div>
+                  </div>
+                )}
+                <div ref={bottomRef} />
+              </div>
+
+              <div className="input-area">
+                <div style={{ width: "100%", maxWidth: "620px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                  <div className="input-row">
+                    <textarea
+                      ref={textareaRef}
+                      className="input-field"
+                      placeholder={lang === "es" ? "responde aquí…" : "respond here…"}
+                      rows={1}
+                      value={input}
+                      onChange={handleTextareaChange}
+                      onKeyDown={handleKeyDown}
+                    />
+                    <button
+                      className="send-btn"
+                      onClick={handleSend}
+                      disabled={!input.trim() || loading}
+                    >
+                      <SendIcon />
+                    </button>
+                  </div>
+                  <a className="coffee-link"
+                    href="https://buymeacoffee.com/shawnatavsky"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {lang === "es"
+                      ? "Esta herramienta es gratuita. Si te ha sido útil y quieres apoyar el trabajo, un café siempre es bienvenido ☕"
+                      : "This tool is free. If it's been useful and you'd like to support the work, a coffee is always welcome ☕"}
+                  </a>
+                  <p className="disclaimer">
+                    {lang === "es"
+                      ? "No es consejo terapéutico · Diseñado por Shawna Tavsky · Con technología de Claude (Anthropic)"
+                      : "Not therapeutic advice · Designed by Shawna Tavsky · Powered by Claude (Anthropic)"}
+                  </p>
                 </div>
               </div>
-            )}
-            <div ref={bottomRef} />
-          </div>
-
-          <div className="input-area">
-                  <div style={{ width: "100%", maxWidth: "620px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-
-          <div className="input-row">
-                <textarea
-                  ref={textareaRef}
-                  className="input-field"
-                  placeholder={lang === "es" ? "responde aquí…" : "respond here…"}
-                  rows={1}
-                  value={input}
-                  onChange={handleTextareaChange}
-                  onKeyDown={handleKeyDown}
-                />
-                <button
-                  className="send-btn"
-                  onClick={handleSend}
-                  disabled={!input.trim() || loading}
-                >
-                  <SendIcon />
-                </button>
-              </div>
-              <a className="coffee-link"
-  href="https://buymeacoffee.com/shawnatavsky"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  {lang === "es"
-    ? "Esta herramienta es gratuita. Si te ha sido útil y quieres apoyar el trabajo, un café siempre es bienvenido ☕"
-    : "This tool is free. If it's been useful and you'd like to support the work, a coffee is always welcome ☕"}
-</a>
-<p className="disclaimer">
-  {lang === "es"
-    ? "No es consejo terapéutico · Diseñado por Shawna Tavsky · Con technología de Claude (Anthropic)"
-    : "Not therapeutic advice · Designed by Shawna Tavsky · Powered by Claude (Anthropic)"}
-</p>
-            </div>
-          </div>
+            </>
+          )}
         </>
       )}
     </div>
