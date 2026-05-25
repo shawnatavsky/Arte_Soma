@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 const MAX_DAILY = 5;
 const STORAGE_KEY = "artesoma:usage";
 
-const SYSTEM_PROMPT = `You are the Arte Soma Micro-Practice Generator.
+const SYSTEM_PROMPT = `You are the Creative Micro-Practice Generator.
 
 Your role is to generate short, non-instrumental creative micro-practices rooted in attention, perception, and lived experience. Practices support orientation, clarity, and presence — not self-improvement, performance, productivity, therapy, healing, or optimization.
 
@@ -209,13 +209,6 @@ const styles = `
   }
 
   .header { text-align: center; margin-bottom: 28px; }
-
-  .header-logo {
-    height: 40px;
-    width: auto;
-    display: block;
-    margin: 0 auto;
-  }
 
   .header-byline {
     margin-top: 10px;
@@ -999,7 +992,7 @@ export default function ArteSoma() {
   return (
     <div className="app">
       <div className="header">
-        <img src="/1.png" alt="Arte Soma" className="header-logo" style={{ marginTop: '24px' }} />
+       
         <p className="header-byline">Micro-Practice Generator - v.02</p>
         <div className="divider" />
       </div>
